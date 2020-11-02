@@ -1,0 +1,29 @@
+# Current .htaccess being used for EASE instance
+# 
+Options +FollowSymLinks
+
+ExpiresActive On
+ExpiresDefault A0
+ExpiresActive Off
+
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+
+<FilesMatch "\.(css|gif|ico|jpg|js|png)$">
+Header set Cache-Control "max-age=86400, proxy-revalidate"
+</FilesMatch>
+
+RewriteEngine On
+RewriteBase /book-helloworld
+
+ErrorDocument 404 /error_404.html
+ 
+RewriteCond $1 !(shibboleth) [NC]
+RewriteCond $1 !\.(htm|html|ico)$ [NC]
+RewriteCond $1 !^application/third_party [NC]
+RewriteCond $1 !^application/public/images [NC]
+RewriteCond $1 !^application/public/scripts [NC]
+RewriteCond $1 !^application/public/styles [NC]
+RewriteCond $1 !^phpinfo.php$ [NC]
+RewriteCond $1 !^index\.php [NC]
+RewriteRule ^(.*)$ index.php/$1 [L]

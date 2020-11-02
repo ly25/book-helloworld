@@ -1,0 +1,18 @@
+
+[LOCAL_MED]
+ 
+db_hostname ='localhost'
+
+
+;               Default = DukeMed_Admissions_Globals
+db ='DukeMed_Admissions_Globals'
+
+; Use shibboleth; 0, 1; Default = 0
+ use_shib =0
+
+db_user='root'
+
+db_pw='sukio5o1'
+
+
+base_url='http://localhost/book'
